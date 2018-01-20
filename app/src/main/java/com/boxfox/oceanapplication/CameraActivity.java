@@ -155,8 +155,9 @@ public class CameraActivity extends Activity {
                     .setMultipartFile("file", "image/jpg", file)
                     .asJsonObject()
                     .setCallback((e, json) -> {
-
-                        Log.d("test", json.toString());
+                        if(json!=null){
+                            Log.d("test", json.toString());
+                        }
                     });
         } catch (Exception e) {
             e.printStackTrace();

@@ -6,6 +6,7 @@
     <View
         android:layout_width="8dp"
         android:layout_height="8dp"
+        android:layout_margin="3dp"
         android:background="@drawable/background_onboarding_point_default" />
 
 </LinearLayout>

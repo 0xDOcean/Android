@@ -4,6 +4,20 @@
     android:layout_height="match_parent"
     android:padding="28dp">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/tv_onboarder_title"
+        android:padding="30dp">
+
+        <ImageView
+            android:id="@+id/iv_onboarder_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true" />
+
+    </RelativeLayout>
+
     <TextView
         android:id="@+id/tv_onboarder_title"
         android:layout_width="wrap_content"
@@ -22,7 +36,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="70dp"
+        android:layout_marginBottom="100dp"
+        android:lineSpacingExtra="8sp"
         android:text="asㅇㅁㄴㅍㅁㄴㅍㅁㄴ ㅍㅁㅍㅁ ㄴㅍㅁ ㄹㅈㅂㅂㅂㅈㄹ ㅈㅂㄹ "
         android:textAlignment="center"
         android:textColor="@color/colorSubText"

@@ -18,4 +18,10 @@
 
     <string name="onboarding_before">이전</string>
     <string name="onboarding_next">다음</string>
+
+    <string name="title_activity_fish_info">FishInfoActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
+    <string name="fish_info_guide">볼륨키를 누르면 이전으로 돌아갑니다</string>
 </resources>

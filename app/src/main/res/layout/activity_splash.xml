@@ -97,8 +97,6 @@
             android:textColor="@color/colorSubText" />
     </LinearLayout>
 
-
-
     <com.facebook.login.widget.LoginButton
         android:id="@+id/btn_splash_facebook_login"
         android:layout_width="match_parent"

@@ -39,7 +39,12 @@
         <activity
             android:name="com.boxfox.oceanapplication.OnboardingActivity"
             android:label="@string/title_activity_onboarding"
-            android:theme="@style/SplashTheme"></activity>
+            android:theme="@style/SplashTheme" />
+        <activity
+            android:name="com.boxfox.oceanapplication.FishInfoActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_fish_info"
+            android:theme="@style/FullscreenTheme"></activity>
     </application>
 
 </manifest>

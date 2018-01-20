@@ -24,7 +24,7 @@ public class OnboardingActivity extends AppCompatActivity {
     private ViewPager mPager;
     private ScreenSlidePagerAdapter mPagerAdapter;
 
-    private static final int PAGE_COUNT = 4;
+    private static final int PAGE_COUNT = 3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,10 +59,9 @@ public class OnboardingActivity extends AppCompatActivity {
     }
 
     private void initPages() {
-        mPagerAdapter.addPage("테스트", "테스트");
-        mPagerAdapter.addPage("테스트", "테스트");
-        mPagerAdapter.addPage("테스트", "테스트");
-        mPagerAdapter.addPage("테스트", "테스트");
+        mPagerAdapter.addPage("너는 이름이 뭐니?", "오르블루는 스킨 다이빙시\n모르는 물고기를 딥러닝 영상인식을 통해\n어떤 물고기인지 알려줍니다.", R.drawable.onboarding_1);
+        mPagerAdapter.addPage(" 마! 적시라!", "요즘 스마트폰들은 전체 방수가 기본입니다.\n이 방수 기능을 이용해서, 바다 친구들을\n스캔하세요!", R.drawable.onboarding_2);
+        mPagerAdapter.addPage("아.. 다음 휴가 언제와...", "오르블루 앱을 통해 수집한\n바다 친구들과의 추억을 만드세요\n오르블루에 저장하세요", R.drawable.onboarding_3);
         mPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -72,8 +71,8 @@ public class OnboardingActivity extends AppCompatActivity {
             @Override
             public void onPageSelected(int position) {
                 for (int i = 0; i < layout_points.getChildCount(); i++)
-                    layout_points.getChildAt(i).setBackground(getResources().getDrawable(R.drawable.background_onboarding_point_default));
-                layout_points.getChildAt(position).setBackground(getResources().getDrawable(R.drawable.background_onboarding_point_activate));
+                    ((LinearLayout)layout_points.getChildAt(i)).getChildAt(0).setBackground(getResources().getDrawable(R.drawable.background_onboarding_point_default));
+                ((LinearLayout)layout_points.getChildAt(position)).getChildAt(0).setBackground(getResources().getDrawable(R.drawable.background_onboarding_point_activate));
 
                 if (position == mPagerAdapter.getCount() - 1) {
                     ((TextView) btn_next).setText("끝내기");
@@ -94,7 +93,7 @@ public class OnboardingActivity extends AppCompatActivity {
         for (int i = 0; i < PAGE_COUNT; i++) {
             layout_points.addView(getLayoutInflater().inflate(R.layout.view_onboarding_point, null));
         }
-        layout_points.getChildAt(0).setBackground(getResources().getDrawable(R.drawable.background_onboarding_point_activate));
+        ((LinearLayout)layout_points.getChildAt(0)).getChildAt(0).setBackground(getResources().getDrawable(R.drawable.background_onboarding_point_activate));
     }
 
     @Override
@@ -114,8 +113,8 @@ public class OnboardingActivity extends AppCompatActivity {
             pageList = new ArrayList<>();
         }
 
-        public void addPage(String title, String desc) {
-            pageList.add(OnboardingFragment.create(title, desc));
+        public void addPage(String title, String desc, int drawable) {
+            pageList.add(OnboardingFragment.create(title, desc, drawable));
             this.notifyDataSetChanged();
         }
 

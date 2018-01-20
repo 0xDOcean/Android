@@ -1,8 +1,10 @@
 package com.boxfox.oceanapplication.view;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapShader;
+import android.graphics.Camera;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.RectF;
@@ -14,6 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.boxfox.oceanapplication.CameraActivity;
 import com.boxfox.oceanapplication.data.FishInfo;
 import com.buffaloes.oceanapplication.R;
 import com.squareup.picasso.Picasso;
@@ -47,6 +50,10 @@ public class FishListView extends LinearLayout {
         View view = li.inflate(R.layout.view_fish_list, this, false);
         layout_recent = view.findViewById(R.id.layout_recent);
         btn_open_camera = view.findViewById(R.id.btn_open_camera);
+
+        btn_open_camera.setOnClickListener(v -> {
+            getContext().startActivity(new Intent(getContext(), CameraActivity.class));
+        });
 
         searchBarBackFirst = view.findViewById(R.id.layout_searchbar_background_first);
 
