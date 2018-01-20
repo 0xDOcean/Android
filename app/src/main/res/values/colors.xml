@@ -7,4 +7,7 @@
     <color name="colorFBLoginStart">#6d92c9</color>
     <color name="colorFBLoginEnd">#3b5998</color>
     <color name="colorSubText">#4c1e2020</color>
+
+    <color name="colorPrimaryBlue">#5abcff</color>
+    <color name="colorPrimaryBlueDark">#5a8eff</color>
 </resources>

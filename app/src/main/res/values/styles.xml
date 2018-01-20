@@ -16,4 +16,11 @@
         <item name="android:windowTranslucentStatus">true</item>
     </style>
 
+    <style name="TransparentStatusBar" parent="Theme.AppCompat.Light.NoActionBar">
+
+        <item name="colorPrimaryDark">@color/colorPrimaryBlue</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="windowActionBarOverlay">true</item>
+    </style>
+
 </resources>

@@ -81,7 +81,7 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     private void next() {
-        startActivity(new Intent(this, CameraActivity.class));
+        startActivity(new Intent(this, FishListActivity.class));
     }
 
     private void checkUserData() {
