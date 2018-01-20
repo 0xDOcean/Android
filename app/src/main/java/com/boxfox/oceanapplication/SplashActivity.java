@@ -1,26 +1,13 @@
 package com.boxfox.oceanapplication;
 
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.Signature;
-import android.os.Debug;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Base64;
-import android.util.Log;
 import android.widget.Button;
 
-import com.boxfox.oceanapplication.data.UserData;
+import com.boxfox.oceanapplication.login.data.UserData;
 import com.boxfox.oceanapplication.login.facebook.FBLoginUtil;
-import com.boxfox.oceanapplication.login.facebook.FacebookCallbackImpl;
 import com.buffaloes.oceanapplication.R;
-import com.facebook.CallbackManager;
-import com.facebook.FacebookSdk;
-import com.facebook.appevents.AppEventsLogger;
 import com.facebook.login.widget.LoginButton;
-
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 
 import io.realm.Realm;
 

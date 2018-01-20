@@ -6,9 +6,8 @@ import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 import android.util.Base64;
 import android.util.Log;
-import android.view.View;
 
-import com.boxfox.oceanapplication.data.UserData;
+import com.boxfox.oceanapplication.login.data.UserData;
 import com.boxfox.oceanapplication.login.JobResultCallback;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookSdk;

@@ -3,14 +3,12 @@ package com.boxfox.oceanapplication.login.facebook;
 import android.content.Context;
 import android.util.Log;
 
-import com.boxfox.oceanapplication.data.UserData;
+import com.boxfox.oceanapplication.login.data.UserData;
 import com.boxfox.oceanapplication.login.JobResultCallback;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.Profile;
 import com.facebook.login.LoginResult;
-
-import io.realm.Realm;
 
 /**
  * Created by boxfox on 2018-01-20.

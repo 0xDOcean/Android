@@ -1,4 +1,4 @@
-package com.boxfox.oceanapplication.data;
+package com.boxfox.oceanapplication.login.data;
 
 import io.realm.Realm;
 import io.realm.RealmObject;
@@ -13,8 +13,6 @@ public class UserData extends RealmObject {
     private String accessToken;
     private String name;
     private String profileImageUrl;
-    private int grade, clazz, number;
-    private String school;
 
     public String getAccessToken() {
         return accessToken;
@@ -46,38 +44,6 @@ public class UserData extends RealmObject {
 
     public void setProfileImageUrl(String profileImageUrl) {
         this.profileImageUrl = profileImageUrl;
-    }
-
-    public int getGrade() {
-        return grade;
-    }
-
-    public void setGrade(int grade) {
-        this.grade = grade;
-    }
-
-    public String getSchool() {
-        return school;
-    }
-
-    public void setSchool(String school) {
-        this.school = school;
-    }
-
-    public int getClazz() {
-        return clazz;
-    }
-
-    public void setClazz(int clazz) {
-        this.clazz = clazz;
-    }
-
-    public int getNumber() {
-        return number;
-    }
-
-    public void setNumber(int number) {
-        this.number = number;
     }
 
     public static UserData getDefaultUser() {
