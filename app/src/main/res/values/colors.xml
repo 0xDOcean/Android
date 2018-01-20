@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimary">#fbfefe</color>
+    <color name="colorPrimaryDark">#f3f6f6</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="colorFBLoginStart">#6d92c9</color>
+    <color name="colorFBLoginEnd">#3b5998</color>
+    <color name="colorSubText">#4c1e2020</color>
 </resources>

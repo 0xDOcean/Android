@@ -1,29 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:id="@+id/btn_splash_facebook_login_fake"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/splash_btn_height"
+            android:layout_margin="@dimen/splash_btn_margin"
+            android:background="@drawable/backgroind_splash_fb_login_btn"
+            android:clickable="true"
+            android:clipToPadding="false"
+            android:elevation="8dp"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:padding="@dimen/splash_btn_margin">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/splash_facebook_login"
+                android:textAlignment="center"
+                android:textColor="@android:color/white" />
+        </FrameLayout>
+
+
+        <FrameLayout
+            android:id="@+id/btn_splash_email_login"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/splash_btn_height"
+            android:layout_marginLeft="@dimen/splash_btn_margin"
+            android:layout_marginRight="@dimen/splash_btn_margin"
+            android:background="@drawable/backgroind_splash_email_login_btn"
+            android:clickable="true"
+            android:clipToPadding="false"
+            android:elevation="8dp"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:padding="@dimen/splash_btn_margin">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/splash_email_login"
+                android:textAlignment="center"
+                android:textColor="@android:color/black" />
+        </FrameLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="24dp"
+            android:autoLink="all"
+            android:linksClickable="false"
+            android:text="@string/splash_login_guide"
+            android:textAlignment="center"
+            android:textColor="@color/colorSubText" />
+    </LinearLayout>
 
     <com.facebook.login.widget.LoginButton
-        android:id="@+id/btn_splash_login_facebook"
+        android:id="@+id/btn_splash_facebook_login"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="invisible" />
 
-    <Button
-        android:id="@+id/btn_splash_login_facebook_fake"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>

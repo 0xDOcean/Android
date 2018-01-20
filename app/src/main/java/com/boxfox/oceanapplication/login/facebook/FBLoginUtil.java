@@ -23,8 +23,6 @@ import java.security.NoSuchAlgorithmException;
 public class FBLoginUtil {
 
     public static void initButton(Context context, com.facebook.login.widget.LoginButton login_facebook, JobResultCallback<UserData> callback) {
-        FacebookSdk.sdkInitialize(context);
-        AppEventsLogger.activateApp(context);
         CallbackManager callbackManager = CallbackManager.Factory.create();
         login_facebook.setReadPermissions("public_profile", "user_friends");
         login_facebook.registerCallback(callbackManager, new FacebookCallbackImpl(context, callback));
