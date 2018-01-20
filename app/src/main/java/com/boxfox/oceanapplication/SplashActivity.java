@@ -67,7 +67,7 @@ public class SplashActivity extends AppCompatActivity {
                 next();
             } else {
                 AlertDialog.Builder ab = new AlertDialog.Builder(SplashActivity.this);
-                ab.setMessage("펴미션을 허용하지 않으면 를 사용하실 수 없습니다!");
+                ab.setMessage("펴미션을 허용하지 않으면 "+getString(R.string.app_name)+"를 사용하실 수 없습니다!");
                 ab.setPositiveButton("확인", null);
                 ab.setOnDismissListener(new DialogInterface.OnDismissListener() {
                     @Override
@@ -81,7 +81,7 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     private void next() {
-        startActivity(new Intent(this, FishListActivity.class));
+        startActivity(new Intent(this, OnboardingActivity.class));
     }
 
     private void checkUserData() {

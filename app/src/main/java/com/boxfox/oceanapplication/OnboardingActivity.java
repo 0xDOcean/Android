@@ -1,54 +1,132 @@
 package com.boxfox.oceanapplication;
 
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
+import com.boxfox.oceanapplication.view.onboarding.OnboardingFragment;
 import com.buffaloes.oceanapplication.R;
-import com.chyrta.onboarder.OnboarderActivity;
-import com.chyrta.onboarder.OnboarderPage;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class OnboardingActivity extends OnboarderActivity {
+public class OnboardingActivity extends AppCompatActivity {
+    private LinearLayout layout_points;
+    private View btn_next, btn_prev;
 
-    private List<OnboarderPage> onboarderPages;
+    private ViewPager mPager;
+    private ScreenSlidePagerAdapter mPagerAdapter;
+
+    private static final int PAGE_COUNT = 4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        onboarderPages = new ArrayList<OnboarderPage>();
+        setContentView(R.layout.activity_onboarding);
 
-        // Create your first page
-        OnboarderPage onboarderPage1 = new OnboarderPage("Title 1", "Description 1");
-        onboarderPage1.setTitleColor(R.color.white);
-        onboarderPage1.setDescriptionColor(R.color.colorSubText);
-        onboarderPage1.setBackgroundColor(R.color.colorPrimaryBlue);
+        layout_points = findViewById(R.id.layout_points);
 
+        mPager = (ViewPager) findViewById(R.id.pager);
+        mPagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
+        mPager.setAdapter(mPagerAdapter);
 
-        OnboarderPage onboarderPage2 = new OnboarderPage("test2", " asdas ads", R.drawable.ic_launcher_foreground);
-        onboarderPage2.setTitleColor(R.color.white);
-        onboarderPage2.setDescriptionColor(R.color.colorSubText);
-        onboarderPage2.setBackgroundColor(R.color.colorPrimaryBlueDark);
+        btn_next = findViewById(R.id.btn_next);
+        btn_prev = findViewById(R.id.btn_prev);
 
-        onboarderPages.add(onboarderPage1);
-        onboarderPages.add(onboarderPage2);
-        setSkipButtonTitle("Skip");
-        setFinishButtonTitle("Finish");
+        btn_next.setOnClickListener(v -> {
+            if (mPager.getCurrentItem() < mPagerAdapter.getCount()-1) {
+                mPager.setCurrentItem(mPager.getCurrentItem() + 1);
+            } else {
+                finish();
+            }
+        });
 
-        setOnboardPagesReady(onboarderPages);
+        btn_prev.setOnClickListener(v -> {
+            if (mPager.getCurrentItem() > 0) {
+                mPager.setCurrentItem(mPager.getCurrentItem() - 1);
+            }
+        });
 
+        initPages();
+    }
+
+    private void initPages() {
+        mPagerAdapter.addPage("테스트", "테스트");
+        mPagerAdapter.addPage("테스트", "테스트");
+        mPagerAdapter.addPage("테스트", "테스트");
+        mPagerAdapter.addPage("테스트", "테스트");
+        mPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                for (int i = 0; i < layout_points.getChildCount(); i++)
+                    layout_points.getChildAt(i).setBackground(getResources().getDrawable(R.drawable.background_onboarding_point_default));
+                layout_points.getChildAt(position).setBackground(getResources().getDrawable(R.drawable.background_onboarding_point_activate));
+
+                if (position== mPagerAdapter.getCount()-1) {
+                    ((TextView) btn_next).setText("끝내기");
+                } else {
+                    ((TextView) btn_next).setText("다음");
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+        initPoints();
+    }
+
+    private void initPoints() {
+        for (int i = 0; i < PAGE_COUNT; i++) {
+            layout_points.addView(getLayoutInflater().inflate(R.layout.view_onboarding_point, null));
+        }
+        layout_points.getChildAt(0).setBackground(getResources().getDrawable(R.drawable.background_onboarding_point_activate));
     }
 
     @Override
-    public void onSkipButtonPressed() {
-        // Optional: by default it skips onboarder to the end
-        super.onSkipButtonPressed();
-        // Define your actions when the user press 'Skip' button
+    public void onBackPressed() {
+        if (mPager.getCurrentItem() == 0) {
+            super.onBackPressed();
+        } else {
+            mPager.setCurrentItem(mPager.getCurrentItem() - 1);
+        }
     }
 
-    @Override
-    public void onFinishButtonPressed() {
-        // Define your actions when the user press 'Finish' button
+    private class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
+        private List<Fragment> pageList;
+
+        public ScreenSlidePagerAdapter(FragmentManager fm) {
+            super(fm);
+            pageList = new ArrayList<>();
+        }
+
+        public void addPage(String title, String desc) {
+            pageList.add(OnboardingFragment.create(title, desc));
+            this.notifyDataSetChanged();
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            return pageList.get(position);
+        }
+
+        @Override
+        public int getCount() {
+            return pageList.size();
+        }
     }
+
 
 }
