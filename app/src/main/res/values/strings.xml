@@ -7,4 +7,6 @@
     <string name="splash_facebook_login">페이스북 계정으로 시작하기</string>
     <string name="splash_email_login">이메일 계정으로 시작하기</string>
     <string name="splash_login_guide"><u>이미 아이디가 있으신가요?</u></string>
+    
+    <string name="camera_capture_guide">볼륨키를 누르면 해양생물을 인식합니다</string>
 </resources>

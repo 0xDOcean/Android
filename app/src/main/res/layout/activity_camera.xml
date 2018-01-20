@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <SurfaceView
+        android:id="@+id/surface_camera_preview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true" />
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="50dp"
+        android:layout_marginLeft="96dp"
+        android:layout_marginRight="96dp"
+        android:layout_marginTop="50dp">
+
+        <View
+            android:id="@+id/view7"
+            android:layout_width="@dimen/camera_focus_size"
+            android:layout_height="@dimen/camera_focus_width"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:background="@android:color/white" />
+
+        <View
+            android:layout_width="@dimen/camera_focus_width"
+            android:layout_height="@dimen/camera_focus_size"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:background="@android:color/white" />
+
+        <View
+            android:layout_width="@dimen/camera_focus_size"
+            android:layout_height="@dimen/camera_focus_width"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:background="@android:color/white" />
+
+        <View
+            android:layout_width="@dimen/camera_focus_width"
+            android:layout_height="@dimen/camera_focus_size"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:background="@android:color/white" />
+
+        <View
+            android:layout_width="@dimen/camera_focus_size"
+            android:layout_height="@dimen/camera_focus_width"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="@android:color/white" />
+
+        <View
+            android:id="@+id/view6"
+            android:layout_width="@dimen/camera_focus_width"
+            android:layout_height="@dimen/camera_focus_size"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="@android:color/white" />
+
+        <View
+            android:id="@+id/view8"
+            android:layout_width="@dimen/camera_focus_size"
+            android:layout_height="@dimen/camera_focus_width"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:background="@android:color/white" />
+
+        <View
+            android:layout_width="@dimen/camera_focus_width"
+            android:layout_height="@dimen/camera_focus_size"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:background="@android:color/white" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/background_camera_item"
+        android:paddingBottom="5dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="5dp"
+        android:text="@string/camera_capture_guide"
+        android:textColor="@android:color/white"
+        android:textSize="14sp" />
+
+</RelativeLayout>
