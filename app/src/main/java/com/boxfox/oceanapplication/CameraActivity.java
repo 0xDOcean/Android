@@ -17,8 +17,12 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.buffaloes.oceanapplication.R;
+import com.google.gson.JsonObject;
+import com.koushikdutta.async.future.FutureCallback;
+import com.koushikdutta.ion.Ion;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 
 public class CameraActivity extends Activity {
@@ -38,8 +42,8 @@ public class CameraActivity extends Activity {
         setContentView(R.layout.activity_camera);
 
         btn_camera_close = findViewById(R.id.btn_camera_close);
+        btn_camera_close.setOnClickListener(v->finish());
 
-        
         preview = (SurfaceView) findViewById(R.id.surface_camera_preview);
 
         previewHolder = preview.getHolder();
@@ -140,16 +144,23 @@ public class CameraActivity extends Activity {
 
 
     public void savePhoto(Bitmap bmp) {
-        /*FileOutputStream out = null;
         try {
-            out = new FileOutputStream(imageFileName);
+            File file = new File("/sdcard/test.jpg");
+            FileOutputStream out = new FileOutputStream(file);
             bmp.compress(Bitmap.CompressFormat.JPEG, 100, out);
             out.flush();
             out.close();
-            out = null;
+            Ion.with(this)
+                    .load("http://soylatte.kr:8080/upload/file")
+                    .setMultipartFile("file", "image/jpg", file)
+                    .asJsonObject()
+                    .setCallback((e, json) -> {
+
+                        Log.d("test", json.toString());
+                    });
         } catch (Exception e) {
             e.printStackTrace();
-        }*/
+        }
     }
 
     public String fromInt(int val) {

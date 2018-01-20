@@ -2,8 +2,41 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/background_splash_gradation">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:src="@drawable/ic_app_logo"
+        android:layout_above="@+id/splitView"
+        android:layout_marginBottom="70dp"/>
+
+    <TextView
+        android:id="@+id/splitView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="42dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/fb_btn_shadow"
+            android:layout_marginBottom="-15dp"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/fb_btn_shadow"/>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,7 +52,6 @@
             android:background="@drawable/background_splash_fb_login_btn"
             android:clickable="true"
             android:clipToPadding="false"
-            android:elevation="8dp"
             android:foreground="?android:attr/selectableItemBackground"
             android:padding="@dimen/splash_btn_margin">
 
@@ -28,6 +60,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/splash_facebook_login"
                 android:textAlignment="center"
+                android:textStyle="bold"
                 android:textColor="@android:color/white" />
         </FrameLayout>
 
@@ -41,16 +74,16 @@
             android:background="@drawable/background_splash_email_login_btn"
             android:clickable="true"
             android:clipToPadding="false"
-            android:elevation="8dp"
             android:foreground="?android:attr/selectableItemBackground"
             android:padding="@dimen/splash_btn_margin">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textStyle="bold"
                 android:text="@string/splash_email_login"
                 android:textAlignment="center"
-                android:textColor="@android:color/black" />
+                android:textColor="#801e2020" />
         </FrameLayout>
 
         <TextView
@@ -63,6 +96,8 @@
             android:textAlignment="center"
             android:textColor="@color/colorSubText" />
     </LinearLayout>
+
+
 
     <com.facebook.login.widget.LoginButton
         android:id="@+id/btn_splash_facebook_login"
