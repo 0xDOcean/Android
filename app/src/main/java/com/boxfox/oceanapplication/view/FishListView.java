@@ -29,8 +29,9 @@ public class FishListView extends LinearLayout {
     private boolean visible;
     private boolean init;
 
-    public FishListView(Context context) {
+    public FishListView(Context context, View searchBarBack) {
         super(context);
+        this.searchBarBack = searchBarBack;
         initView();
     }
 
@@ -38,12 +39,9 @@ public class FishListView extends LinearLayout {
         String infService = Context.LAYOUT_INFLATER_SERVICE;
         LayoutInflater li = (LayoutInflater) getContext().getSystemService(infService);
         View view = li.inflate(R.layout.view_fish_list, this, false);
-        addView(view);
-
         layout_recent = view.findViewById(R.id.layout_recent);
         btn_open_camera = view.findViewById(R.id.btn_open_camera);
 
-        searchBarBack = view.findViewById(R.id.layout_searchbar_background);
         searchBarBackFirst = view.findViewById(R.id.layout_searchbar_background_first);
 
         searchBarBack.animate().alpha(0.0f);
@@ -63,6 +61,7 @@ public class FishListView extends LinearLayout {
             }
         });
         loadItems();
+        addView(view);
     }
 
     private void loadItems() {
