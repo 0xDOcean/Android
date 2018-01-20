@@ -1,9 +1,10 @@
 apply plugin: 'com.android.application'
+apply plugin: 'realm-android'
 
 android {
     compileSdkVersion 26
     defaultConfig {
-        applicationId "com.buffaloes.oceanapplication"
+        applicationId "com.boxfox.oceanapplication"
         minSdkVersion 19
         targetSdkVersion 26
         versionCode 1
@@ -16,6 +17,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
 }
 
 dependencies {
@@ -25,4 +30,6 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    compile 'com.koushikdutta.ion:ion:2.+'
+    compile 'com.facebook.android:facebook-login:[4,5)'
 }
