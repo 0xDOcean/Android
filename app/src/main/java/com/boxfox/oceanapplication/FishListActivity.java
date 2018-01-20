@@ -1,5 +1,6 @@
 package com.boxfox.oceanapplication;
 
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -20,6 +21,7 @@ public class FishListActivity extends AppCompatActivity {
     private ScrollView scrollView_main;
     private LinearLayout layout_recent;
 
+    private FloatingActionButton btn_open_camera;
     private View searchBarBack, searchBarBackFirst;
     private boolean visible;
     private boolean init;
@@ -30,6 +32,7 @@ public class FishListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_fish_list);
 
         layout_recent = findViewById(R.id.layout_recent);
+        btn_open_camera = findViewById(R.id.btn_open_camera);
 
         searchBarBack = findViewById(R.id.layout_searchbar_background);
         searchBarBackFirst = findViewById(R.id.layout_searchbar_background_first);
