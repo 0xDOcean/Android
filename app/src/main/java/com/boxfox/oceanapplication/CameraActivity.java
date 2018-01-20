@@ -30,11 +30,16 @@ public class CameraActivity extends Activity {
 
     private boolean inPreview;
 
+    private ImageView btn_camera_close;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera);
 
+        btn_camera_close = findViewById(R.id.btn_camera_close);
+
+        
         preview = (SurfaceView) findViewById(R.id.surface_camera_preview);
 
         previewHolder = preview.getHolder();
