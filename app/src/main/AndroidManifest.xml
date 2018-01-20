@@ -34,7 +34,11 @@
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
         <activity
             android:name="com.boxfox.oceanapplication.FishListActivity"
-            android:theme="@style/TransparentStatusBar"></activity>
+            android:theme="@style/TransparentStatusBar" />
+        <activity
+            android:name="com.boxfox.oceanapplication.OnboardingActivity"
+            android:label="@string/title_activity_onboarding"
+            android:theme="@style/SplashTheme"></activity>
     </application>
 
 </manifest>

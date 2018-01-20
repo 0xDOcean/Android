@@ -8,6 +8,7 @@ import io.realm.RealmObject;
 
 public class FishInfo extends RealmObject{
     private String name, date, location, imageUrl;
+    private int lat, log;
 
     public String getName() {
         return name;
@@ -39,5 +40,21 @@ public class FishInfo extends RealmObject{
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+    public int getLat() {
+        return lat;
+    }
+
+    public void setLat(int lat) {
+        this.lat = lat;
+    }
+
+    public int getLog() {
+        return log;
+    }
+
+    public void setLog(int log) {
+        this.log = log;
     }
 }
