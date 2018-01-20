@@ -1,5 +1,6 @@
 package com.boxfox.oceanapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -40,9 +41,10 @@ public class OnboardingActivity extends AppCompatActivity {
         btn_prev = findViewById(R.id.btn_prev);
 
         btn_next.setOnClickListener(v -> {
-            if (mPager.getCurrentItem() < mPagerAdapter.getCount()-1) {
+            if (mPager.getCurrentItem() < mPagerAdapter.getCount() - 1) {
                 mPager.setCurrentItem(mPager.getCurrentItem() + 1);
             } else {
+                startActivity(new Intent(OnboardingActivity.this, FishListActivity.class));
                 finish();
             }
         });
@@ -73,7 +75,7 @@ public class OnboardingActivity extends AppCompatActivity {
                     layout_points.getChildAt(i).setBackground(getResources().getDrawable(R.drawable.background_onboarding_point_default));
                 layout_points.getChildAt(position).setBackground(getResources().getDrawable(R.drawable.background_onboarding_point_activate));
 
-                if (position== mPagerAdapter.getCount()-1) {
+                if (position == mPagerAdapter.getCount() - 1) {
                     ((TextView) btn_next).setText("끝내기");
                 } else {
                     ((TextView) btn_next).setText("다음");

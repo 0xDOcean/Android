@@ -1,6 +1,11 @@
 package com.boxfox.oceanapplication.view;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapShader;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.RectF;
 import android.support.design.widget.FloatingActionButton;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,7 +16,8 @@ import android.widget.TextView;
 
 import com.boxfox.oceanapplication.data.FishInfo;
 import com.buffaloes.oceanapplication.R;
-import com.bumptech.glide.Glide;
+import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Transformation;
 
 import io.realm.Realm;
 import io.realm.RealmResults;
@@ -79,7 +85,11 @@ public class FishListView extends LinearLayout {
         ((TextView) view.findViewById(R.id.tv_fish_name)).setText(info.getName());
         ((TextView) view.findViewById(R.id.tv_date)).setText(info.getDate());
         ((TextView) view.findViewById(R.id.tv_location)).setText(info.getLocation());
-        Glide.with(this).load(info.getImageUrl()).into((ImageView) findViewById(R.id.iv_fish));
+
+        final int radius = 15;
+        final int margin = 5;
+        final Transformation transformation = new RoundedCornersTransformation(radius, margin);
+        Picasso.with(getContext()).load(info.getImageUrl()).fit().transform(transformation).into((ImageView) view.findViewById(R.id.iv_fish));
         if (!init) {
             layout_recent.addView(view, 1);
             init = true;

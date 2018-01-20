@@ -73,6 +73,7 @@
         android:layout_alignParentRight="true"
         android:layout_margin="16dp"
         android:background="@color/colorAccent"
-        android:src="@drawable/ic_goggle" />
+        android:src="@drawable/ic_goggle"
+        android:clickable="true" />
 
 </RelativeLayout>

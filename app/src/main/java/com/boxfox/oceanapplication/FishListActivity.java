@@ -7,9 +7,12 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
+import com.boxfox.oceanapplication.data.FishInfo;
 import com.boxfox.oceanapplication.view.FishListView;
 import com.boxfox.oceanapplication.view.FishMapView;
 import com.buffaloes.oceanapplication.R;
+
+import io.realm.Realm;
 
 public class FishListActivity extends AppCompatActivity {
     private RelativeLayout layout_root;
@@ -30,6 +33,18 @@ public class FishListActivity extends AppCompatActivity {
         btn_toggle.setOnClickListener(v -> toggle());
         toggle();
     }
+
+  /*  private void createRandomImage(){
+        Realm realm = Realm.getDefaultInstance();
+        realm.beginTransaction();
+        for(int i = 0 ; i < 10 ; i++){
+            FishInfo fishInfo = realm.createObject(FishInfo.class);
+            fishInfo.setName("민둥산");
+            fishInfo.setDate("어제 잡은 물고기");
+            fishInfo.setImageUrl("http://www.mcst.go.kr/attachFiles/cultureInfoCourt/localFestival/notifyFestival/1503280262897.jpg");
+        }
+        realm.commitTransaction();
+    }*/
 
     private void toggle() {
         if (map) {

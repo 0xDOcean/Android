@@ -12,7 +12,6 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 
 import com.boxfox.oceanapplication.login.data.UserData;
 import com.boxfox.oceanapplication.login.facebook.FBLoginUtil;
@@ -67,7 +66,7 @@ public class SplashActivity extends AppCompatActivity {
                 next();
             } else {
                 AlertDialog.Builder ab = new AlertDialog.Builder(SplashActivity.this);
-                ab.setMessage("펴미션을 허용하지 않으면 "+getString(R.string.app_name)+"를 사용하실 수 없습니다!");
+                ab.setMessage("펴미션을 허용하지 않으면 " + getString(R.string.app_name) + "를 사용하실 수 없습니다!");
                 ab.setPositiveButton("확인", null);
                 ab.setOnDismissListener(new DialogInterface.OnDismissListener() {
                     @Override
@@ -81,21 +80,32 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     private void next() {
-        startActivity(new Intent(this, OnboardingActivity.class));
+        startActivity(new Intent(this, FishListActivity.class));
+        finish();
     }
 
     private void checkUserData() {
         Realm.init(this);
         if (UserData.getDefaultUser() != null) {
-            //startActivity(new Intent(LoginActivity.this, MainActivity.class));
-            finish();
+            next();
         }
     }
 
     private void initLoginButton() {
         login_facebook_fake.setOnClickListener((v) -> login_facebook.performClick());
         FBLoginUtil.initButton(this, login_facebook, (result, data) -> {
-
+            String name = data.getName();
+            String profileUrl = data.getProfileImageUrl();
+            String token = data.getAccessToken();
+            Realm realm = Realm.getDefaultInstance();
+            realm.beginTransaction();
+            UserData userData = realm.createObject(UserData.class);
+            userData.setAccessToken(token);
+            userData.setName(name);
+            userData.setProfileImageUrl(profileUrl);
+            realm.commitTransaction();
+            startActivity(new Intent(SplashActivity.this, OnboardingActivity.class));
+            finish();
         });
     }
 
